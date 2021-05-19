@@ -1,0 +1,42 @@
+# install mysql
+sudo apt-get install mysql-server mysql-client
+#change root password
+sudo mysql_secure_installation
+#login to mysql client
+sudo mysql -u root -p
+
+CREATE DATABASE database_name;
+DROP DATABASE database_name;
+SHOW DATABASES;
+
+#CHOOSE DATABASE
+USE database_name;
+
+SHOW TABLES;
+
+# CREATE TABLE
+CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, first_name CHAR(255), last_name CHAR(255), about_me VARCHAR(255), is_developer TINYINT(1), PRIMARY_KEY(id);
+DROP TABLE users;
+
+SHOW COLUMNS FROM users;
+
+# INSERT DATA
+INSERT INTO users (first_name, last_name, about_me, is_developer) VALUES ("Liubomyr", "Luzhnyi", "bla bla bla bla bla lb a bla bla bla bla bla bla", 1);
+INSERT INTO users (first_name, last_name, about_me, is_developer) VALUES ("Liubomyr1", "Luzhnyi1", "bla bla bla bla bla
+lb a bla bla bla bla bla bla1", 1), ("Vasyl", "Mykutko", "bla bla bla bla", 1);
+
+SELECT * FROM users;
+
+SELECT * FROM users WHERE last_name="Luzhnyi";
+SELECT * FROM users WHERE last_name="Luzhnyi" AND is_developer=0;
+SELECT * FROM users WHERE last_name="Luzhnyi" OR last_name="Bondar";
+SELECT * FROM users WHERE last_name LIKE "%uzh%";
+SELECT * FROM users WHERE id > 2;
+DELETE FROM users WHERE last_name="Luzhnyi1";
+UPDATE users SET is_developer=1 WHERE id=4;
+ALTER TABLE users MODIFY COLUMN last_name VARCHAR(255);
+ALTER TABLE users MODIFY COLUMN is_developer TINYINT(1) NOT NULL;
+ALTER TABLE users ADD COLUMN email CHAR(255) NOT NULL;
+CREATE USER "newuser"@"localhost" IDENTIFIED BY "toor";
+GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';
+FLUSH PRIVILEGES;
