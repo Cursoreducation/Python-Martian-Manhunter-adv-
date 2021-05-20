@@ -1,4 +1,0 @@
-1. Create tests for class Calculator (functions_to_test.py)
-    a. Using unittest lib
-    b. Using pytest lib
-2.* Create tests for class Employee (employee.py) and mock response from "https://company.com"

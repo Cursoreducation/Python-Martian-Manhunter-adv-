@@ -1,2 +1,0 @@
-1. Create a the same tests as tic-tac/test_game but with pytest.
-2.* Create tests with unittest for tic-tac/game TicTacToe.winner method
