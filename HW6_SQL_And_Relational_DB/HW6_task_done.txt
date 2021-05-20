@@ -1,0 +1,126 @@
+1. Insert dump (my_items) to your local database.
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_items           |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0,00 sec)
+
+mysql> USE my_items;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0,00 sec)
+
+mysql>
+
+
+
+    Create additional table phones with fields:
+        id, phone_name, company_id, user_id
+    mysql> CREATE TABLE phones (id INT NOT NULL AUTO_INCREMENT, phone_name CHAR(255), company_id INT NOT NULL, user_id INT NOT NULL);
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> CREATE TABLE phones (id INT NOT NULL AUTO_INCREMENT, phone_name CHAR(255), company_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY(id));
+Query OK, 0 rows affected (0,53 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phones             |
+| users              |
++--------------------+
+2 rows in set (0,01 sec)
+
+    Create additional table phone_companies with fields:
+        id, name
+    mysql> CREATE TABLE phone_companies (id INT NOT NULL, name CHAR(255));
+Query OK, 0 rows affected (0,45 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phone_companies    |
+| phones             |
+| users              |
++--------------------+
+3 rows in set (0,00 sec)
+
+mysql> ALTER TABLE phone_companies ADD PRIMARY KEY(id);
+Query OK, 0 rows affected (1,16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+     Write select and save it to file to get users is developers.
+     mysql> SELECT * FROM users WHERE is_developer=1
+    -> ;
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,00 sec)
+
+
+     Insert xiaomi, apple, samsung to companies.
+     mysql> INSERT INTO phone_companies (id, name) VALUES (1, 'xiaomi'), (2, 'apple'), (3, 'samsung');
+Query OK, 3 rows affected (0,13 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM phone_companies;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | xiaomi  |
+|  2 | apple   |
+|  3 | samsung |
++----+---------+
+3 rows in set (0,00 sec)
+
+
+     Insert 3 phone (with any data) to phones.
+     mysql> INSERT INTO phones (id, phone_name, company_id, user_id) VALUES (1, 'Mi A2 Lite', 1, 3), (2, 'iphone X', 2, 4), (3, 'Galaxy S7',3, 1)
+    -> ;
+Query OK, 3 rows affected (0,12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+
+     Write select and save it to file to get phones where company_id=XIAOMI COMPANY ID.
+     mysql> SELECT * FROM phones WHERE company_id=1
+    -> ;
++----+------------+------------+---------+
+| id | phone_name | company_id | user_id |
++----+------------+------------+---------+
+|  1 | Mi A2 Lite |          1 |       3 |
++----+------------+------------+---------+
+1 row in set (0,00 sec)
+
+
+send file dump of your database and file with your select and insert queries.
+
+2.* Select all users which have phones.
+mysql> SELECT * FROM users WHERE id IN (SELECT user_id FROM phones)
+    -> ;
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,01 sec)
+
