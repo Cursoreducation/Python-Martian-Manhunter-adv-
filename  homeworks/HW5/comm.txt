@@ -1,0 +1,178 @@
+alex@alex-lenovo:~/PycharmProjects/CursorADV/Python-Martian-Manhunter-adv-/ homeworks/databases$ sudo mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.25-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE my_items
+    -> ;
+Query OK, 1 row affected (0,04 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_items           |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0,00 sec)
+
+mysql> QUIT;
+Bye
+
+alex@alex-lenovo:~/PycharmProjects/CursorADV/Python-Martian-Manhunter-adv-/ homeworks/databases$ sudo mysql -u root -p my_items < my_items.sql
+Enter password:
+alex@alex-lenovo:~/PycharmProjects/CursorADV/Python-Martian-Manhunter-adv-/ homeworks/databases$ sudo mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.25-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_items           |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0,00 sec)
+
+mysql> USE my_items;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0,00 sec)
+
+mysql> SHOW COLUMNS FROM users;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| first_name   | char(255)    | YES  |     | NULL    |                |
+| last_name    | varchar(255) | YES  |     | NULL    |                |
+| about_me     | varchar(255) | YES  |     | NULL    |                |
+| is_developer | tinyint(1)   | NO   |     | NULL    |                |
+| email        | char(255)    | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+6 rows in set (0,01 sec)
+
+mysql> SELECT * FROM users;
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,00 sec)
+
+mysql> CREATE TABLE phones (id INT NOT NULL AUTO_INCREMENT, phone_name CHAR(255), company_id CHAR(255), user_id CHAR(255), PRIMARY KEY(id));
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> CREATE TABLE phone_companies (id INT NOT NULL AUTO_INCREMENT, name CHAR(255), PRIMARY KEY(id));
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phone_companies    |
+| phones             |
+| users              |
++--------------------+
+3 rows in set (0,00 sec)
+
+mysql> SELECT * FROM users WHERE is_developer = 1;
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,00 sec)
+
+mysql> INSERT INTO phone_companies (name) VALUES ("xiaomi"), ("apple"), ("samsung");
+Query OK, 3 rows affected (0,03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM phone_companies;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | xiaomi  |
+|  2 | apple   |
+|  3 | samsung |
++----+---------+
+3 rows in set (0,00 sec)
+
+
+mysql> INSERT INTO phones (phone_name, company_id, use
+use                 users               users.email         users.id            users.last_name
+user_id             users.about_me      users.first_name    users.is_developer
+mysql> INSERT INTO phones (phone_name, company_id, user_id) VALUES ("MI 11", 1, 1), ("12PRO", 2, 3), ("A71", 3, 4);
+Query OK, 3 rows affected (0,03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM phones;
++----+------------+------------+---------+
+| id | phone_name | company_id | user_id |
++----+------------+------------+---------+
+|  1 | MI 11      | 1          | 1       |
+|  2 | 12PRO      | 2          | 3       |
+|  3 | A71        | 3          | 4       |
++----+------------+------------+---------+
+3 rows in set (0,00 sec)
+
+mysql> SELECT * FROM phones WHERE company_id = 1;
++----+------------+------------+---------+
+| id | phone_name | company_id | user_id |
++----+------------+------------+---------+
+|  1 | MI 11      | 1          | 1       |
++----+------------+------------+---------+
+1 row in set (0,00 sec)
+
+
+2.
+mysql> SELECT * FROM users WHERE id IN (SELECT user_id FROM phones);
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,00 sec)
+
+
+
+
