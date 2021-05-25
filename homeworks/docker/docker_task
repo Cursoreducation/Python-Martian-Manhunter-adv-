@@ -1,0 +1,18 @@
+1. Use the simple Flask application and build Dockerfile for it.
+Create your own image (docker build) and try to run the container and interact with it by using your browser.
+Don't forget to pass the valid ports by using -p. (e.g .: -p 8080: 8080)
+Try to use such commands:
+- docker run (with -d, -it, or without) {id}/{name},
+- docker stop {id}/{name},
+- docker attach {id}/{name},
+- docker inspect {id}/{name},
+- docker logs {id}/{name}
+Change the flask application to print your name and rebuild the image. Run the container again to verify the result.
+
+2*.
+• docker run -it --name my_story ubuntu
+• In the container, run echo "Your story" > story.txt
+• Install cowsay with apt-get install cowsay and execute cat story.txt|cowsay.
+• In another terminal window, run docker run -it --name my_story_2 ubuntu
+• Using ls, check that there is no joke.txt file, because you are in another different container. Also,
+there is no cowsay command.
