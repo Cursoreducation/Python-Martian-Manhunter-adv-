@@ -1,0 +1,39 @@
+mkdir linux_lecture
+touch notes.txt
+cp notes.txt linux_lecture
+ls -la
+cd
+ls -gar
+history
+ls -gar --group-directories-first
+cd Desktop/Cursor
+mv notes.txt new_notes.txt
+ls
+rm new_notes.txt linux_lecture/notes.txt
+cd linux_lecture
+touch homework.sh
+stat homework.sh 
+touch -m -t 202001010415.00 homework.sh
+stat homework.sh
+touch hw.sh hw1.sh hw2.sh hw1.txt
+find *.txt
+cp *.txt lecture_new
+ls
+rm lecture_new
+mkdir lecture_new | cp *.txt lecture_new
+ls
+echo 'echo "linux_lecture"' > homework.sh
+cat homework.sh
+sudo chmod 200 homework.sh | cat homework.sh
+sudo chmod 700 homework.sh | cat homework.sh
+./homework.sh  
+seq 1 10 > homework.sh 
+head -n7 homework.sh 
+touch notes.sh | echo 'ls' > notes.sh
+sudo chmod 100 notes.sh
+./notes.sh
+sudo ./notes.sh
+sudo chmod 777 notes.sh
+./notes.sh
+history
+

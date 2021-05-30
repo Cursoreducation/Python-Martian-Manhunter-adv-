@@ -1,0 +1,45 @@
+mkdir cursor_git
+cd  cursor_git
+touch first.py
+git add first.py
+git status
+git commit -m "adding first.py"
+git log
+git status
+touch second.py
+git add second.py
+git commit -m "adding second.py"
+git rm first.py
+ls
+git status
+git add first.py
+git commit -m "removing first.py"
+git log
+git push origin master
+git branch first
+git checkout -b second
+echo "print('Hello')" > second.py
+git stash
+git checkout first
+git checkout second
+git stash pop
+git add second.py
+git commit -m "Changing second.py"
+git push origin second
+git checkout first
+echo 'print("Cursor")' > second.py
+cat second.py 
+git add second.py
+git status
+git commit -m "Changing second.py from the 1st branch"
+git push origin first
+git checkout master
+git merge second
+git merge first
+git status
+git add second.py
+git status
+git commit -m "conflict was resolved"
+git status
+git push origin master
+

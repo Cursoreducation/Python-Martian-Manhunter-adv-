@@ -1,26 +1,26 @@
 # git ignore directories
 
-.idea/
-HW#1_Linux&Git/HW1_Pycharm/.idea/
-HW#1_Linux&Git/HW1_Pycharm/__pycache__/
-HW#1_Linux&Git/HW1_Pycharm/config.py
-HW#1_Linux&Git/HW1_Pycharm/venv/
-HW#2_OOP/.idea/
-HW#2_OOP/task1/__pycache__/
-HW#2_OOP/venv/
-Homework3/.idea/
-Homework3/__pycache__/
-Homework3/task.txt
-Homework3/venv/
-Homework4/venv/
-Homework4/__pycache__/
-Lecture4/
-Homework5/venv/bin/
-Homework5/venv/lib/
-Homework5/venv/pyvenv.cfg
-Homework5/__pycache__/
-Homework5/venv/
+my_homeworks/.idea/
+my_homeworks/Homework1/HW1_Pycharm/.idea/
+my_homeworks/Homework1/HW1_Pycharm/__pycache__/
+my_homeworks/Homework1/HW1_Pycharm/config.py
+my_homeworks/Homework1/HW1_Pycharm/venv/
+my_homeworks/Homework2/.idea/
+my_homeworks/Homework2/task1/__pycache__/
+my_homeworks/Homework2/venv/
+my_homeworks/Homework3/.idea/
+my_homeworks/Homework3/__pycache__/
+my_homeworks/Homework3/task.txt
+my_homeworks/Homework3/venv/
+my_homeworks/Homework4/venv/
+my_homeworks/Homework4/__pycache__/
+my_homeworks/Lecture4/
+my_homeworks/Homework5/venv/bin/
+my_homeworks/Homework5/venv/lib/
+my_homeworks/Homework5/venv/pyvenv.cfg
+my_homeworks/Homework5/__pycache__/
+my_homeworks/Homework5/venv/
 
-Homework5/test_winner_pytest.py
+my_homeworks/Homework5/test_winner_pytest.py
 
-Homework5/test_fixture.py
+my_homeworks/Homework5/test_fixture.py
