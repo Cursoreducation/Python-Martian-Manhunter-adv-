@@ -1,5 +1,5 @@
 # git ignore directories
-
+.idea/
 my_homeworks/.idea/
 my_homeworks/Homework1/HW1_Pycharm/.idea/
 my_homeworks/Homework1/HW1_Pycharm/__pycache__/
@@ -14,6 +14,8 @@ my_homeworks/Homework3/task.txt
 my_homeworks/Homework3/venv/
 my_homeworks/Homework4/venv/
 my_homeworks/Homework4/__pycache__/
+my_homeworks/Homework4/.idea/
+
 my_homeworks/Lecture4/
 my_homeworks/Homework5/venv/bin/
 my_homeworks/Homework5/venv/lib/
