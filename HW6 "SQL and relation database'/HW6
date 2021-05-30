@@ -1,0 +1,123 @@
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_items           |
+| mysql              |
+| performance_schema |
+| shop               |
+| sys                |
++--------------------+
+6 rows in set (0,00 sec)
+
+mysql> USE my_items;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0,00 sec)
+
+mysql> CREATE TABLE phones (id INT NOT NULL AUTO_INCREMENT, phone_name CHAR(255), company_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY(id));
+Query OK, 0 rows affected (0,32 sec)
+
+mysql> SHOW TABLES:
+    -> SHOW TABLES;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':
+SHOW TABLES' at line 1
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phones             |
+| users              |
++--------------------+
+2 rows in set (0,01 sec)
+
+mysql> CREATE TABLES phone_companies (id INT NOT NULL, name CHAR(255));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLES phone_companies (id INT NOT NULL, name CHAR(255))' at line 1
+mysql> CREATE TABLE phone_companies (id INT NOT NULL, name CHAR(255));
+Query OK, 0 rows affected (0,49 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_my_items |
++--------------------+
+| phone_companies    |
+| phones             |
+| users              |
++--------------------+
+3 rows in set (0,00 sec)
+
+mysql> SELECT * FROM phone_companies;
+Empty set (0,00 sec)
+
+mysql> SELECT * FROM users WHERE is_developers=1;
+ERROR 1054 (42S22): Unknown column 'is_developers' in 'where clause'
+mysql> SHOW COLUMNS FROM phone_companies;
++-------+-----------+------+-----+---------+-------+
+| Field | Type      | Null | Key | Default | Extra |
++-------+-----------+------+-----+---------+-------+
+| id    | int       | NO   |     | NULL    |       |
+| name  | char(255) | YES  |     | NULL    |       |
++-------+-----------+------+-----+---------+-------+
+2 rows in set (0,07 sec)
+
+mysql> INSERT INTO phone_companies (name) VALUES ("Xiaomi"),("Apple"),("Samsung");
+ERROR 1364 (HY000): Field 'id' doesn't have a default value
+mysql> DROP phone_companies;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'phone_companies' at line 1
+mysql> ALTER TABLE phone_companies ADD PRIMARY KEY(id);
+Query OK, 0 rows affected (0,93 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM users WHERE is_developer=1;
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+| id | first_name | last_name | about_me                                          | is_developer | email          |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+|  1 | Liubomyr   | Luzhnyi   | bla bla bla bla bla lb a bla bla bla bla bla bla  |            1 | test@email.com |
+|  3 | Vasyl      | Mykutko   | bla bla bla bla                                   |            1 | test@email.com |
+|  4 | Roman      | Bondar    | bla bla bla bla bla lb a bla bla bla bla bla bla1 |            1 | test@email.com |
++----+------------+-----------+---------------------------------------------------+--------------+----------------+
+3 rows in set (0,00 sec)
+
+mysql> INSERT INTO phone_companies (id, name) VALUES (1, 'xiaomi'), (2, 'apple'), (3, 'samsung')
+    -> ;
+Query OK, 3 rows affected (0,04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM phone_companies;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | xiaomi  |
+|  2 | apple   |
+|  3 | samsung |
++----+---------+
+3 rows in set (0,00 sec)
+
+mysql> INSERT INTO phones (id, phone_name, company_id, user_id) VALUES (1, "XIAOMI REDMI NOTE 9T", 1, 2), (2, 'iPhone 11', 2, 3), (3, 'Galaxy Z Fold2', 3, 3);
+Query OK, 3 rows affected (0,06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM phones WHERE company_id=1;
++----+----------------------+------------+---------+
+| id | phone_name           | company_id | user_id |
++----+----------------------+------------+---------+
+|  1 | XIAOMI REDMI NOTE 9T |          1 |       2 |
++----+----------------------+------------+---------+
+1 row in set (0,00 sec)
+
+mysql> SELECT * FROM users WHERE id IN (SELECT user_id FROM phones);
++----+------------+-----------+-----------------+--------------+----------------+
+| id | first_name | last_name | about_me        | is_developer | email          |
++----+------------+-----------+-----------------+--------------+----------------+
+|  3 | Vasyl      | Mykutko   | bla bla bla bla |            1 | test@email.com |
++----+------------+-----------+-----------------+--------------+----------------+
+1 row in set (0,02 sec)
