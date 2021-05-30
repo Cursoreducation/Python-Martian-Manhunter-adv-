@@ -1,0 +1,26 @@
+# git ignore directories
+
+.idea/
+HW#1_Linux&Git/HW1_Pycharm/.idea/
+HW#1_Linux&Git/HW1_Pycharm/__pycache__/
+HW#1_Linux&Git/HW1_Pycharm/config.py
+HW#1_Linux&Git/HW1_Pycharm/venv/
+HW#2_OOP/.idea/
+HW#2_OOP/task1/__pycache__/
+HW#2_OOP/venv/
+Homework3/.idea/
+Homework3/__pycache__/
+Homework3/task.txt
+Homework3/venv/
+Homework4/venv/
+Homework4/__pycache__/
+Lecture4/
+Homework5/venv/bin/
+Homework5/venv/lib/
+Homework5/venv/pyvenv.cfg
+Homework5/__pycache__/
+Homework5/venv/
+
+Homework5/test_winner_pytest.py
+
+Homework5/test_fixture.py
