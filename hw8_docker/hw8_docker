@@ -1,0 +1,31 @@
+pip install -r ./requirements.txt
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run -d -p 8080:8080 my_image
+docker ps
+docker stop 1b651b7f0e20
+docker ps
+docker run -d -p 8080:8080 my_image
+docker ps
+docker stop 50aeb5c800b4
+docker build -t my_image .
+docker run -d -p 8080:8080 my_image
+docker attach 8ccb3619e692
+docker inspect 8ccb3619e692
+docker logs 8ccb3619e692
+docker stop 8ccb3619e692
+
+
+docker run -it --name my_story ubuntu
+root@293b7357addf:/# echo "Your story" > story.txt
+root@293b7357addf:/# apt-get update && apt-get install cowsay
+root@293b7357addf:/# cat story.txt
+root@293b7357addf:/# cat story.txt|/usr/games/cowsay
+
+
+docker run -it --name my_story_2 ubuntu
+root@2394d1f2d7a3:/# ls
+root@2394d1f2d7a3:/# cat joke.txt
+root@2394d1f2d7a3:/# cd /usr/games/cowsay
+root@2394d1f2d7a3:/# cat story.txt
