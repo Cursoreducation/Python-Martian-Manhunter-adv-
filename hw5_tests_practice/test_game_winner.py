@@ -12,7 +12,7 @@ class TestWinner(unittest.TestCase):
         self.game_unittest.board = ["X", "0", "X",
                                     " ", "0", "0",
                                     "X", "0", "X"]
-        self.assertTrue(self.game_unittest.winner("0", 2))
+        self.assertTrue(self.game_unittest.winner(2, "0"))
         print(self.game_unittest.board)
 
     def test_column_unittest(self):
@@ -20,7 +20,7 @@ class TestWinner(unittest.TestCase):
         self.game_unittest.board = ["X", "0", "X",
                                     " ", "0", "0",
                                     "0", "0", "X"]
-        self.assertTrue(self.game_unittest.winner("0", 5))
+        self.assertTrue(self.game_unittest.winner(5, "0"))
         print(self.game_unittest.board)
 
     def test_diagonal_unittest(self):
@@ -28,7 +28,7 @@ class TestWinner(unittest.TestCase):
         self.game_unittest.board = ["X", "0", "X",
                                     " ", "X", "0",
                                     "0", "0", "X"]
-        self.assertTrue(self.game_unittest.winner("X", 8))
+        self.assertTrue(self.game_unittest.winner(8, "X"))
         print(self.game_unittest.board)
 
     def other_conditions(self):
@@ -36,7 +36,7 @@ class TestWinner(unittest.TestCase):
         self.game_unittest.board = ["X", "0", "X"
                                     "0", "X", "0"
                                     "0", "X", " "]
-        self.assertFalse(self.game_unittest.winner("X", 1))
+        self.assertFalse(self.game_unittest.winner(1, "X"))
 
 
 if __name__ == "main":
