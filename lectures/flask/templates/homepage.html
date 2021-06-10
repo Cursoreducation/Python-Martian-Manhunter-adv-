@@ -14,18 +14,34 @@
             <form action="/search" method="POST">
                 <h2>Search weather for your city</h2>
                 <div class="select-group">
-                    <label for="city">Choose your city:</label>
-                    <select name="city">
-                        <option value="london">London</option>
-                        <option value="lviv">Lviv</option>
-                        <option value="kiev">Kiev</option>
-                        <option value="paris">Paris</option>
-                     </select>
+                    <label for="cities">Write cities</label>
+                    <p><input name="cities"></p>
+                      <!--<label for="city">Choose your city:</label>
+                        <select name="city">
+                            <option value="london">London</option>
+                            <option value="lviv">Lviv</option>
+                            <option value="kiev">Kiev</option>
+                            <option value="paris">Paris</option>
+                         </select>-->
                 </div>
                 <div class="button-list">
                     <button type="submit">Check Weather</button>
                 </div>
-        </form>
+            </form>
+        </div>
+        <div class="form-container">
+            <form action="/search_position" method="POST">
+                <h2>Search weather for your position (coordinate)</h2>
+                <div class="select-group">
+                    <label for="lat">Latitude:</label>
+                    <p><input name="lat"></p>
+                    <label for="lon">Longitude:</label>
+                    <p><input name="lon"></p>
+                </div>
+                <div class="button-list">
+                    <button type="submit">Check Weather</button>
+                </div>
+            </form>
         </div>
 
     </body>

@@ -5,12 +5,18 @@ body {
 
 h1 {
     color: green;
+    text-align: center;
 }
 
 .form-container {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.Error {
+    color: red;
+    text-align: center;
 }
 
 form {
