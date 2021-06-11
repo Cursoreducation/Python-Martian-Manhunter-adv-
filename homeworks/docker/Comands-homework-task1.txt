@@ -1,0 +1,141 @@
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker build . --tag flask
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+flask        latest    5bd14cfe75ed   19 seconds ago   422MB
+ubuntu       20.04     7e0aa2d69a15   4 weeks ago      72.7MB
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker run -p 8000:8080 flask
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [26/May/2021 16:28:35] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 16:28:36] "GET /favicon.ico HTTP/1.1" 404 -
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+6e79de5fb510   flask     "/bin/sh -c 'FLASK_A…"   7 minutes ago   Up 7 minutes   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp   heuristic_banzai
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker stop 6
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker run -p 8000:8080 -d flask
+fc9869ab9ebc825bd6097596750d45c3fa1a63d16aed8a9f977ebee4584e5d40
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+fc9869ab9ebc   flask     "/bin/sh -c 'FLASK_A…"   33 seconds ago   Up 30 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp   exciting_brahmagupta
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker attach f
+172.17.0.1 - - [26/May/2021 16:39:44] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 16:39:45] "GET / HTTP/1.1" 200 -
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker inspect f
+[
+    {
+        "Id": "fc9869ab9ebc825bd6097596750d45c3fa1a63d16aed8a9f977ebee4584e5d40",
+        "Created": "2021-05-26T16:38:56.873310572Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+...
+
+
+docker logs f
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker build . --tag flask_v2
+Sending build context to Docker daemon  9.728kB
+Step 1/5 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update && apt-get install -y python python3-pip
+ ---> Using cache
+ ---> 00dfc3063ff7
+Step 3/5 : RUN pip install flask
+ ---> Using cache
+ ---> 39de681bc171
+Step 4/5 : COPY app.py /opt/
+ ---> 4945574c4188
+Step 5/5 : ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ ---> Running in bf14ef002cad
+Removing intermediate container bf14ef002cad
+ ---> 92a23939a32f
+Successfully built 92a23939a32f
+Successfully tagged flask_v2:latest
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+flask_v2     latest    92a23939a32f   2 minutes ago    422MB
+flask        latest    5bd14cfe75ed   28 minutes ago   422MB
+ubuntu       20.04     7e0aa2d69a15   4 weeks ago      72.7MB
+0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [26/May/2021 16:39:02] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 16:39:44] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 16:39:45] "GET / HTTP/1.1" 200 -
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker build . --tag flask_v2
+Sending build context to Docker daemon  9.728kB
+Step 1/5 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update && apt-get install -y python python3-pip
+ ---> Using cache
+ ---> 00dfc3063ff7
+Step 3/5 : RUN pip install flask
+ ---> Using cache
+ ---> 39de681bc171
+Step 4/5 : COPY app.py /opt/
+ ---> 4945574c4188
+Step 5/5 : ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ ---> Running in bf14ef002cad
+Removing intermediate container bf14ef002cad
+ ---> 92a23939a32f
+Successfully built 92a23939a32f
+Successfully tagged flask_v2:latest
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+flask_v2     latest    92a23939a32f   2 minutes ago    422MB
+flask        latest    5bd14cfe75ed   28 minutes ago   422MB
+ubuntu       20.04     7e0aa2d69a15   4 weeks ago      72.7MB
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker build . --tag flask_v2
+Sending build context to Docker daemon  9.728kB
+Step 1/5 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update && apt-get install -y python python3-pip
+ ---> Using cache
+ ---> 00dfc3063ff7
+Step 3/5 : RUN pip install flask
+ ---> Using cache
+ ---> 39de681bc171
+Step 4/5 : COPY app.py /opt/
+ ---> 4945574c4188
+Step 5/5 : ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ ---> Running in bf14ef002cad
+Removing intermediate container bf14ef002cad
+ ---> 92a23939a32f
+Successfully built 92a23939a32f
+Successfully tagged flask_v2:latest
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+flask_v2     latest    92a23939a32f   2 minutes ago    422MB
+flask        latest    5bd14cfe75ed   28 minutes ago   422MB
+ubuntu       20.04     7e0aa2d69a15   4 weeks ago      72.7MB

@@ -1,0 +1,29 @@
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$  docker run -it --name my_story2 ubuntu
+
+root@7a9a0a022bd2:/# echo "This is my story" > story.txt
+root@7a9a0a022bd2:/# cat story.txt
+This is my story
+root@7a9a0a022bd2:/# apt-get update 
+root@7a9a0a022bd2:/# apt-get install cowsay
+root@7a9a0a022bd2:/# cat story.txt|usr/games/cowsay
+ __________________
+< This is my story >
+ ------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+serhii@serhii-X540NV:~/PycharmProjects/Cursor-HW-Advansed/HW8_Docker$ docker run -it --name my_story_2 ubuntu
+root@766b7f170d3f:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@766b7f170d3f:/# cd usr/games/
+root@766b7f170d3f:/usr/games# ls
+root@766b7f170d3f:/usr/games# ll
+total 8
+drwxr-xr-x 2 root root 4096 Apr 15  2020 ./
+drwxr-xr-x 1 root root 4096 Apr 16 05:11 ../
+root@766b7f170d3f:/usr/games# 
