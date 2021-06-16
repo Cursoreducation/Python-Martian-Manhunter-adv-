@@ -17,5 +17,15 @@ class MenuItem(Resource):
         }
 
 
+class FooterItem(Resource):
+    def get(self):
+        return {
+            'success': True,
+            'items': Config.FOOTER_LINKS
+        }
+
+
 api.add_resource(MenuItem, '/menu-items')
+api.add_resource(FooterItem, '/footer-items')
+
 

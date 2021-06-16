@@ -15,3 +15,17 @@ body {
     color: white;
     text-decoration: underline;
 }
+
+footer {
+
+}
+
+.footer a:hover {
+    color: #6c757d;
+    text-decoration: underline;
+}
+
+.footer a {
+    color: #6c757d;
+}
+
