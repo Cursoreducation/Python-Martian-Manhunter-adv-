@@ -1,6 +1,14 @@
 """Data models."""
 from app import db
+import datetime
+import json
 
+class DateTimeEncoder(json.JSONEncoder):
+    def default(self, date):
+        if isinstance(date, datetime.datetime):
+            return str(date)
+        else:
+            return super().default(date)
 
 class User(db.Model):
     """Data model for user accounts."""
@@ -41,8 +49,20 @@ class User(db.Model):
     )
     articles = db.relationship("Article", backref='author', lazy=True)
 
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "created": json.dumps(self.created, cls=DateTimeEncoder),
+            "bio": self.bio,
+            "admin": self.admin,
+        }
+
     def __repr__(self):
         return '<User {}>'.format(self.username)
+
 
 
 class Article(db.Model):
@@ -87,6 +107,7 @@ class Article(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            "author_id": self.author_id,
             "title": self.title,
             "slug": self.slug,
             'description': self.description,
