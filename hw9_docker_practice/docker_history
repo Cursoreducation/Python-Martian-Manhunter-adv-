@@ -1,0 +1,16 @@
+task #1
+docker images
+docker save -o images_all.tar ubuntu my_image
+ls -sh images_all.tar
+mkdir images_all
+mv images_all.tar images_all
+cd images_all/
+ls -sh
+tar xvf images_all.tar
+
+
+task #2
+docker images
+docker build -t rome_datetime:0.1 .
+docker images
+docker run 7ab

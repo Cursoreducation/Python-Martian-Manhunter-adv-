@@ -1,0 +1,156 @@
+task #1
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+my_image      latest    f801206d23f5   2 weeks ago    423MB
+<none>        <none>    b63a489fd728   2 weeks ago    423MB
+<none>        <none>    d257d431d96d   2 weeks ago    418MB
+ubuntu        20.04     7e0aa2d69a15   2 months ago   72.7MB
+ubuntu        latest    7e0aa2d69a15   2 months ago   72.7MB
+hello-world   latest    d1165f221234   3 months ago   13.3kB
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker save -o images_all.tar ubuntu my_image
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ ls -sh images_all.tar
+413M images_all.tar
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ mkdir images_all
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ mv images_all.tar images_all
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ cd images_all/
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice/images_all$ ls -sh
+total 413M
+413M images_all.tar
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice/images_all$ tar xvf images_all.tar
+08e264de1d192221b0803e6f223eea27c8ac552f42fd92dc82ed814e1515238b/
+08e264de1d192221b0803e6f223eea27c8ac552f42fd92dc82ed814e1515238b/VERSION
+08e264de1d192221b0803e6f223eea27c8ac552f42fd92dc82ed814e1515238b/json
+08e264de1d192221b0803e6f223eea27c8ac552f42fd92dc82ed814e1515238b/layer.tar
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/VERSION
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/json
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/layer.tar
+32779bc13e18aa70da348a586f8678aaaa4d60d87a6790f777a773f3f3bb319d/
+32779bc13e18aa70da348a586f8678aaaa4d60d87a6790f777a773f3f3bb319d/VERSION
+32779bc13e18aa70da348a586f8678aaaa4d60d87a6790f777a773f3f3bb319d/json
+32779bc13e18aa70da348a586f8678aaaa4d60d87a6790f777a773f3f3bb319d/layer.tar
+68aa103fcdec02df67749c192dd3d859002ba4903851edc320985e6c92f8841a/
+68aa103fcdec02df67749c192dd3d859002ba4903851edc320985e6c92f8841a/VERSION
+68aa103fcdec02df67749c192dd3d859002ba4903851edc320985e6c92f8841a/json
+68aa103fcdec02df67749c192dd3d859002ba4903851edc320985e6c92f8841a/layer.tar
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/VERSION
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/json
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/layer.tar
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+8aecaf3cc94b3813412bf1af104da925f6da51c61f3d8a553b3470d7114216ec/
+8aecaf3cc94b3813412bf1af104da925f6da51c61f3d8a553b3470d7114216ec/VERSION
+8aecaf3cc94b3813412bf1af104da925f6da51c61f3d8a553b3470d7114216ec/json
+8aecaf3cc94b3813412bf1af104da925f6da51c61f3d8a553b3470d7114216ec/layer.tar
+aa4c6709c636d68ba4e3cf78ce7eac4875d99140db58c1af4011dfd6a36824e5/
+aa4c6709c636d68ba4e3cf78ce7eac4875d99140db58c1af4011dfd6a36824e5/VERSION
+aa4c6709c636d68ba4e3cf78ce7eac4875d99140db58c1af4011dfd6a36824e5/json
+aa4c6709c636d68ba4e3cf78ce7eac4875d99140db58c1af4011dfd6a36824e5/layer.tar
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/VERSION
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/layer.tar
+f801206d23f5dcb114ebdc588cba928bfcef7903e4c635a796fe9ca58fab1425.json
+manifest.json
+repositories
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks$ 
+
+
+task #2
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+ubuntu       18.04     7d0d8fa37224   5 days ago     63.1MB
+ubuntu       20.04     7e0aa2d69a15   2 months ago   72.7MB
+ubuntu       latest    7e0aa2d69a15   2 months ago   72.7MB
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker build -t rome_datetime:0.1 .
+Sending build context to Docker daemon  865.9MB
+Step 1/5 : FROM ubuntu:latest
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update
+ ---> Running in e8ea63c2abad
+Get:1 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]
+Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/restricted amd64 Packages [33.4 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages [177 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 Packages [11.3 MB]
+Get:8 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [368 kB]
+Get:9 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [27.6 kB]
+Get:10 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [777 kB]
+Get:11 http://archive.ubuntu.com/ubuntu focal/main amd64 Packages [1275 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1343 kB]
+Get:13 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [923 kB]
+Get:14 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [395 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1032 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [32.0 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [4305 B]
+Fetched 18.3 MB in 3s (6836 kB/s)
+Reading package lists...
+Removing intermediate container e8ea63c2abad
+ ---> 769628c4a353
+Step 3/5 : RUN apt-get install tzdata
+ ---> Running in 1e8ade8a16a5
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  tzdata
+0 upgraded, 1 newly installed, 0 to remove and 14 not upgraded.
+Need to get 295 kB of archives.
+After this operation, 4033 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 tzdata all 2021a-0ubuntu0.20.04 [295 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 295 kB in 0s (831 kB/s)
+Selecting previously unselected package tzdata.
+(Reading database ... 4121 files and directories currently installed.)
+Preparing to unpack .../tzdata_2021a-0ubuntu0.20.04_all.deb ...
+Unpacking tzdata (2021a-0ubuntu0.20.04) ...
+Setting up tzdata (2021a-0ubuntu0.20.04) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.30.0 /usr/local/share/perl/5.30.0 /usr/lib/x86_64-linux-gnu/perl5/5.30 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.30 /usr/share/perl/5.30 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+Configuring tzdata
+------------------
+
+Please select the geographic area in which you live. Subsequent configuration
+questions will narrow this down by presenting a list of cities, representing
+the time zones in which they are located.
+
+  1. Africa      4. Australia  7. Atlantic  10. Pacific  13. Etc
+  2. America     5. Arctic     8. Europe    11. SystemV
+  3. Antarctica  6. Asia       9. Indian    12. US
+Geographic area: 
+Use of uninitialized value $_[1] in join or string at /usr/share/perl5/Debconf/DbDriver/Stack.pm line 111.
+
+Current default time zone: '/UTC'
+Local time is now:      Wed Jun 23 21:27:21 UTC 2021.
+Universal Time is now:  Wed Jun 23 21:27:21 UTC 2021.
+Run 'dpkg-reconfigure tzdata' if you wish to change it.
+
+Use of uninitialized value $val in substitution (s///) at /usr/share/perl5/Debconf/Format/822.pm line 83, <GEN6> line 4.
+Use of uninitialized value $val in concatenation (.) or string at /usr/share/perl5/Debconf/Format/822.pm line 84, <GEN6> line 4.
+Removing intermediate container 1e8ade8a16a5
+ ---> 4663b7d03ca7
+Step 4/5 : ENV TZ 'Europe/Rome'
+ ---> Running in d2e8d6b3b430
+Removing intermediate container d2e8d6b3b430
+ ---> 57b1107aca77
+Step 5/5 : CMD date +%c
+ ---> Running in 7d6e2575fb34
+Removing intermediate container 7d6e2575fb34
+ ---> 7ab807e44c18
+Successfully built 7ab807e44c18
+Successfully tagged rome_datetime:0.1
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker images
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+rome_datetime   0.1       7ab807e44c18   12 seconds ago   106MB
+ubuntu          18.04     7d0d8fa37224   5 days ago       63.1MB
+ubuntu          20.04     7e0aa2d69a15   2 months ago     72.7MB
+ubuntu          latest    7e0aa2d69a15   2 months ago     72.7MB
+mariiahorbova@Slasher:~/cursor_projects/Python-Martian-Manhunter-adv-HW-homeworks/hw9_docker_practice$ docker run 7ab
+Wed Jun 23 23:27:52 2021
+
