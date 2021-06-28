@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    <title>Create user</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+
+<div class="container">
+    <h1>Create user</h1>
+    <form class="needs-validation" novalidate action="/user/store" method="POST" enctype="multipart/form-data">
+      <div class="form-group row mg-top-sm">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" required class="form-control" id="email" name="email" placeholder="Email">
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+          <div class="invalid-feedback">
+              Empty slug
+          </div>
+        </div>
+      </div>
+  <div class="form-group row mg-top-sm">
+    <label for="name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" required class="form-control" id="name" name="name" placeholder="Name">
+      <div class="valid-feedback">
+          Looks good!
+      </div>
+      <div class="invalid-feedback">
+          Empty slug
+      </div>
+    </div>
+  </div>
+  <div class="form-group row mg-top-sm">
+      <label for="bio" class="col-sm-2 col-form-label">Biography</label>
+      <div class="col-sm-10">
+          <textarea required class="form-control" id="bio" name="bio" rows="3"></textarea>
+          <div class="invalid-feedback">
+            Empty description
+          </div>
+      </div>
+  </div>
+  <div class="form-group row mg-top-sm">
+    <div class="col-sm-2">Admin</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="admin" name="admin">
+        <label class="form-check-label" for="admin">
+          Yes
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="btn-group mg-top-sm col-sm-12" role="group" aria-label="Create user">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+    </form>
+</div>
+
+
+{% include 'blog/shared/scripts.html' %}
+
+</body>
+</html>

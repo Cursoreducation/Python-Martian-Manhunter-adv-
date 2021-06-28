@@ -4,6 +4,7 @@ from flask import render_template, request, Response, redirect
 from config import Config, articles
 from flask_restful import Resource, Api
 from models.models import Article, User
+from datetime import datetime
 
 
 @app.route('/', methods=["GET"])
@@ -21,6 +22,11 @@ def article_details(slug):
 @app.route('/article/create')
 def article_create():
     return render_template('blog/article_create.html')
+
+
+@app.route('/user/create')
+def user_create():
+    return render_template('blog/user_create.html')
 
 
 @app.route('/article/store', methods=["POST"])
@@ -41,5 +47,22 @@ def article_store():
     )
 
     db.session.add(article)
+    db.session.commit()
+    return redirect("/")
+
+
+@app.route('/user/store', methods=["POST"])
+def user_store():
+    data = request.form
+
+    user = User(
+        username=data.get('name'),
+        email=data.get('email'),
+        created=datetime.now(),
+        bio=data.get('bio'),
+        admin=bool(data.get('admin'))
+    )
+
+    db.session.add(user)
     db.session.commit()
     return redirect("/")
