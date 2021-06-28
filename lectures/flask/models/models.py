@@ -1,6 +1,17 @@
 """Data models."""
 from app import db
 from helpers.serializers import Serializer
+import json
+import datetime
+
+
+class DateTimeEncoder(json.JSONEncoder):
+    def default(self, date):
+        if isinstance(date, datetime.datetime):
+            return str(date)
+        else:
+            return super().default(date)
+
 
 class User(db.Model, Serializer):
     """Data model for user accounts."""
@@ -41,14 +52,25 @@ class User(db.Model, Serializer):
     )
     articles = db.relationship("Article", backref='author', lazy=True)
 
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "bio": self.bio,
+            'created': json.dumps(self.created, cls=DateTimeEncoder),
+            "admin": self.admin
+        }
+
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
 
 article_categories = db.Table('article_categories',
-                        db.Column("article_id", db.Integer, db.ForeignKey('articles.id')),
-                        db.Column("category_id", db.Integer, db.ForeignKey("category.id"))
-                    )
+                              db.Column("article_id", db.Integer, db.ForeignKey('articles.id')),
+                              db.Column("category_id", db.Integer, db.ForeignKey("category.id"))
+                              )
 
 
 class Article(db.Model):
@@ -58,7 +80,7 @@ class Article(db.Model):
         primary_key=True
     )
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    author = db.relationship("User", backref='articles', lazy=True)
+    # author = db.relationship("User", backref='articles', lazy=True)
     title = db.Column(
         db.String(255),
         nullable=False,
