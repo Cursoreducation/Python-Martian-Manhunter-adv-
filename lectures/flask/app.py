@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify, Response
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
+from config import Config
 
 
 db = SQLAlchemy()

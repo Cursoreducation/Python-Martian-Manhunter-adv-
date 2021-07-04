@@ -88,8 +88,16 @@ class Contact(Resource):
         return Response(status=200)
 
 
+class FooterItem(Resource):
+    def get(self):
+        return {
+            'success': True,
+            'items': Config.FOOTER_LINKS
+        }
+
 api.add_resource(MenuItem, '/api/menu-items')
 api.add_resource(Articles, '/api/articles')
 api.add_resource(Users, '/api/users')
 api.add_resource(ArticlesEntity, '/api/articles/<int:id>')
 api.add_resource(Contact, '/api/contact')
+api.add_resource(FooterItem, '/footer-items')
