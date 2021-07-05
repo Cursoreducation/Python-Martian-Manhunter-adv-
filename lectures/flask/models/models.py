@@ -44,6 +44,12 @@ class User(db.Model, Serializer):
         unique=False,
         nullable=False
     )
+    activated = db.Column(
+        db.Boolean,
+        index=False,
+        unique=False,
+        nullable=False,
+    )
     articles = db.relationship("Article", backref='author', lazy=True)
 
     def __repr__(self):
@@ -56,6 +62,7 @@ class User(db.Model, Serializer):
             "username": self.username,
             "email": self.email,
             'bio': self.bio,
+            'activated': self.activated
         }
 
 

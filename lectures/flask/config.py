@@ -12,7 +12,6 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS')
     UPLOAD_PATH = 'static/uploads/'
-    BLOG_TITLE = "Blog Cursor"
     MENU_ITEMS = [
         {
             'name': "Articles",
@@ -23,6 +22,29 @@ class Config:
             'link': '/categories',
         },
     ]
+    BLOG_TITLE = {
+        "name": "Blog Cursor",
+        "description": "This blog was made in homework number 15"
+    }
+    FOOTER_LINKS = [
+        {
+            "name": "Contact with us",
+            "link": "/contact-us",
+        },
+        {
+            "name": "About us",
+            "link": "/about-us",
+        },
+        {
+            "name": "Help",
+            "link": "/help",
+        },
+    ]
+    FOOTER_INFO = {
+        "address": "ZAMARSTYNIVSKA 79, LVIV",
+        "mob-tel": "+38 (067) 527 41 31",
+        "email": "cursor@gmail.com"
+    }
 
 
 def articles():
