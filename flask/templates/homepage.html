@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Homepage</title>
+    </head>
+    <body>
+        <h1>Weather Homepage</h1>
+        <div class="form-container">
+            <form action="/search" method="POST">
+                <h2>Search weather for your city</h2>
+                <div class="select-group">
+                    <label for="cities">Write your city:</label>
+                    <input name="cities">
+                </div>
+                <div class="button-list">
+                    <button type="submit">Check Weather</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <form action="/search_coordinates" method="POST">
+                <h2>Weather search by coordinates</h2>
+                    <p>Enter the coordinates of your location:</p>
+                    <label for="lat">Latitude:</label>
+                    <input name="lat">
+                    <label for="lon">Longitude:</label>
+                    <input name="lon">
+                <div class="button-list">
+                    <button type="submit">Check Weather</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

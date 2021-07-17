@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Weather for {{ weather["name"] }}</title>
+</head>
+<body>
+    <div class="container">
+        {% for city in weather %}
+        <h1>Weather for {{ city["name"] }}</h1>
+        <div class="coords">
+            <h3>Coords</h3>
+            <div class="coords-value">
+                <p>Lat: {{ city["coord"]["lat"] }}</p>
+                <p>Lon: {{ city["coord"]["lon"] }}</p>
+            </div>
+        </div>
+        <div class="temp">
+            <h3>Temp</h3>
+            <div class="temp-value">
+                <p>{{ city["main"]["temp"] }}</p>
+            </div>
+        </div>
+        {% if city.get("rain") != None %}
+            <div class="rain">
+                <h3>Rain</h3>
+            </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</body>
+</html>

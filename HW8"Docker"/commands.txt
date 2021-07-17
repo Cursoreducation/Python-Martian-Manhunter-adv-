@@ -1,0 +1,171 @@
+1. Use the simple Flask application and build Dockerfile for it.
+Create your own image (docker build) and try to run the container and interact with it by using your browser.
+Don't forget to pass the valid ports by using -p. (e.g .: -p 8080: 8080)
+Try to use such commands:
+- docker run (with -d, -it, or without) {id}/{name},
+- docker stop {id}/{name},
+- docker attach {id}/{name},
+- docker inspect {id}/{name},
+- docker logs {id}/{name}
+Change the flask application to print your name and rebuild the image. Run the container again to verify the result.
+
+
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker build -t flask_image .
+aksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+flask_image   latest    c846fa7981bd   16 seconds ago   423MB
+ubuntu        20.04     7e0aa2d69a15   6 weeks ago      72.7MB
+ubuntu        latest    7e0aa2d69a15   6 weeks ago      72.7MB
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -d flask_image
+03f8ecc7f7d6ab1347720f21d41d65fb4b85c69dcbf41f6135614d76c96d8105
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS     NAMES
+03f8ecc7f7d6   flask_image   "/bin/sh -c 'FLASK_A…"   8 seconds ago   Up 6 seconds             cool_torvalds
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker attach 0
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker stop 0
+0
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -p 8000:8080 flask_image
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [05/Jun/2021 16:41:14] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [05/Jun/2021 16:41:14] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [05/Jun/2021 16:41:21] "GET /user HTTP/1.1" 200 -
+172.17.0.1 - - [05/Jun/2021 16:41:29] "GET /hello HTTP/1.1" 200 -
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS              PORTS                                       NAMES
+3f3e852d00f9   flask_image   "/bin/sh -c 'FLASK_A…"   About a minute ago   Up About a minute   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp   inspiring_williamson
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker stop 3f
+3f
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -it flask_image
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+ maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS     NAMES
+82ed577720d2   flask_image   "/bin/sh -c 'FLASK_A…"   25 seconds ago   Up 23 seconds             gracious_cannon
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker stop 82e
+82e
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -d flask_image
+8b0f95b2b49cc5f5b2a1c4122373ecd8315df3825660b8ed70416f714812169c
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker inspect 8b
+[
+    {
+        "Id": "8b0f95b2b49cc5f5b2a1c4122373ecd8315df3825660b8ed70416f714812169c",
+        "Created": "2021-06-05T16:44:25.787661265Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 51494,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-06-05T16:44:27.229836328Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker logs 8b
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker stop 8b
+8b
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker build -t flask_image
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker build -t flask_image .
+
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+flask_image   latest    c846fa7981bd   9 minutes ago   423MB
+ubuntu        20.04     7e0aa2d69a15   6 weeks ago     72.7MB
+ubuntu        latest    7e0aa2d69a15   6 weeks ago     72.7MB
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -p 8000:8080 flask_image
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [05/Jun/2021 16:48:43] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [05/Jun/2021 16:48:55] "GET /hello HTTP/1.1" 200 -
+172.17.0.1 - - [05/Jun/2021 16:49:02] "GET /user HTTP/1.1" 200 -
+
+
+
+
+
+2*.
+• docker run -it --name my_story ubuntu
+• In the container, run echo "Your story" > story.txt
+• Install cowsay with apt-get install cowsay and execute cat story.txt|cowsay.
+• In another terminal window, run docker run -it --name my_story_2 ubuntu
+• Using ls, check that there is no joke.txt file, because you are in another different container. Also,there is no cowsay command.
+
+
+
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -it --name my_story ubuntu
+root@b8f58ebe74bc:/# echo "Cursor is the best!" > story.txt
+root@b8f58ebe74bc:/# cat story.txt
+Cursor is the best!
+root@b8f58ebe74bc:/# apt-
+apt-cache   apt-cdrom   apt-config  apt-get     apt-key     apt-mark    
+root@b8f58ebe74bc:/# apt-get update 
+
+root@b8f58ebe74bc:/# cat story.txt|cowsay
+bash: cowsay: command not found
+root@b8f58ebe74bc:/# cat story.txt|usr/games/cowsay
+ _____________________
+< Cursor is the best! >
+ ---------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@b8f58ebe74bc:/# 
+maksym@maksymsharko:~/Python-Martian-Manhunter-adv-/HW8"Docker"$ docker run -it --name my_story_2 ubuntu
+root@972936dbcdab:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@972936dbcdab:/# cd usr/games/
+root@972936dbcdab:/usr/games# ls
+root@972936dbcdab:/usr/games# ll
+total 8
+drwxr-xr-x 2 root root 4096 Apr 15  2020 ./
+drwxr-xr-x 1 root root 4096 Apr 16 05:11 ../
+root@972936dbcdab:/usr/games# cd ..
+root@972936dbcdab:/usr# cat joke.txt|cowsay
+bash: cowsay: command not found
+cat: joke.txt: No such file or directory
+
+
+
