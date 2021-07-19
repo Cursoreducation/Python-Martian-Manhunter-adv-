@@ -11,8 +11,11 @@
     <h1>Sign In</h1>
     <form class="needs-validation" novalidate action="/login" method="POST" enctype="multipart/form-data">
         <div class="form-group">
+            {% if wrong %}
+                <div class="wrong"> You entered an incorrect username or password !!! </div>
+            {% endif %}
             <label for="username">Username</label>
-            <input type="text" required class="form-control" id="username" name="username" placeholder="Kek">
+            <input type="text" required class="form-control" id="username" name="username" placeholder="Kek" value={{username}}>
             <div class="valid-feedback">
                 Looks good!
             </div>

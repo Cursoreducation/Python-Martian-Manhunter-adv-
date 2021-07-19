@@ -2,7 +2,7 @@ from app import app, api, db, mail
 from flask import render_template, request, Response
 from config import Config, articles
 from flask_restful import Resource, Api
-from models.models import Article, User
+from models.models import Article, User, Category, article_categories
 from flask_mail import Message
 
 
@@ -80,7 +80,8 @@ class Contact(Resource):
     def post(self):
         data = request.json
         msg = Message('Contact form alert!', sender='turupuru8@gmail.com', recipients=['l.luzhnuy@gmail.com'])
-        msg.html = "Contact Email: " + data['email'] + "<br>" + "Contact Title: " + data['title'] + "<br>" + "Contact Description: " + data['description']
+        msg.html = "Contact Email: " + data['email'] + "<br>" + "Contact Title: " + data[
+            'title'] + "<br>" + "Contact Description: " + data['description']
         mail.send(msg)
         client_msg = Message('Dear Client!', sender='turupuru8@gmail.com', recipients=[data['email']])
         client_msg.html = render_template('blog/emails/contact.html', email=data['email'])
@@ -95,9 +96,41 @@ class FooterItem(Resource):
             'items': Config.FOOTER_LINKS
         }
 
+
+class CategoryArticleOne(Resource):
+    def get(self,title):
+        articles = Article.query
+        if articles == None:
+            return Response(status=404)
+        articles = articles.filter_by(title=title)
+        serialized_article = []
+        for article in articles:
+            serialized_category = []
+            for category in article.categories:
+                serialized_category.append(category.title)
+            serialized_article.append({article.title: serialized_category})
+        return serialized_article
+
+
+class CategoryArticleAll(Resource):
+    def get(self):
+        articles = Article.query.all()
+        if articles == None:
+            return Response(status=404)
+        serialized_article = []
+        for article in articles:
+            serialized_category = []
+            for category in article.categories:
+                serialized_category.append(category.title)
+            serialized_article.append({article.title: serialized_category})
+        return serialized_article
+
+
 api.add_resource(MenuItem, '/api/menu-items')
 api.add_resource(Articles, '/api/articles')
 api.add_resource(Users, '/api/users')
-api.add_resource(ArticlesEntity, '/api/articles/<int:id>')
+api.add_resource(ArticlesEntity, '/api/article/<int:id>')
 api.add_resource(Contact, '/api/contact')
-api.add_resource(FooterItem, '/footer-items')
+api.add_resource(FooterItem, '/api/footer-items')
+api.add_resource(CategoryArticleOne, '/api/category-article/<string:title>')
+api.add_resource(CategoryArticleAll, '/api/category-article')

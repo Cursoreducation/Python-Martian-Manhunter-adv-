@@ -30,3 +30,8 @@ footer {
 .footer a {
     color: #6c757d;
 }
+
+.wrong {
+    color: red;
+    font-weight: bold;
+}

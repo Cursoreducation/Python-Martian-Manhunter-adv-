@@ -70,12 +70,17 @@ def login():
     if user:
         if check_password(user.password, request.form.get('password')):
             session['user'] = user.serialize
+        else:
+            return render_template('blog/signin.html', wrong=True, username=request.form.get('username'))
     else:
         user = User.query.filter_by(username=request.form.get('username')).first()
         if user:
             if check_password(user.password, request.form.get('password')):
                 session['user'] = user.serialize
-
+            else:
+                return render_template('blog/signin.html', wrong=True, username=request.form.get('username'))
+        else:
+            return render_template('blog/signin.html', wrong=True, username=request.form.get('username'))
     return redirect('/')
 
 
@@ -107,6 +112,7 @@ def contact_us():
 def article_store():
     if not session.get('user', False):
         return redirect('/')
+    print ( session['user'] )
     data = request.form
     img = request.files['img']
     if img:
@@ -116,12 +122,12 @@ def article_store():
     article = Article(
         title=data.get('title'),
         slug=data.get('slug'),
-        author_id=1,
+        author_id=session['user']['id'],
         description=data.get('description'),
         short_description=data.get('short_description'),
         img=path
     )
-
-    db.session.add(article)
-    db.session.commit()
+    with db.session.begin():
+        db.session.add(article)
+    # db.session.commit()
     return redirect("/")
