@@ -36,6 +36,26 @@ class Car(models.Model):
         default=ENGINE_CARBURETOR,
     )
 
+    POPULATION_YOUTH = 'youth'
+    POPULATION_FAMILY = 'family'
+    POPULATION_SPORTSMAN = 'sportsman'
+    POPULATION_TRAVELERS = 'travelers'
+    POPULATION_ALL = 'all'
+
+    POPULATION_CHOICE = (
+        (POPULATION_YOUTH, 'Для молодежи'),
+        (POPULATION_FAMILY,'Для семьи'),
+        (POPULATION_SPORTSMAN,'Для спортсменов'),
+        (POPULATION_TRAVELERS, 'Для путешественников'),
+        (POPULATION_ALL, 'Для всех'),
+    )
+
+    population_type = models.CharField(
+        max_length=30,
+        choices=POPULATION_CHOICE,
+        default=POPULATION_ALL,
+    )
+
     price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
@@ -58,6 +78,7 @@ class Car(models.Model):
     #     choices=FUEL_CHOICE,
     #     default=FUEL_PETROL,
     # )
+
     fuel_type = models.ForeignKey(
         'cars.FuelType',
         on_delete=models.CASCADE,
