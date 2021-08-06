@@ -1,0 +1,10 @@
+<h1>Order {{ order.first_name }} {{ order.second_name }}</h1>
+<div>
+    Имя - {{ order.first_name }} <br/>
+    Фамилия - {{ order.second_name }} <br/>
+    Почта - {{ order.email }} <br/>
+    Телефон - {{ order.phone }} <br/>
+    Сообщение - {{ order.message }} <br/>
+    Статус заказа - {{ order.status }} <br/>
+    Авто - {{ order.car.model.brand.name }} {{ order.car.model.name }} - <a href="/cars/{{ order.car.slug }}">Подробнее</a> <br/>
+</div>

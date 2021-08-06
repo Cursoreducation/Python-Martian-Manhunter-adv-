@@ -1,0 +1,6 @@
+<h1>Dealers list</h1>
+<div>
+  {% for dealer in dealers %}
+     {{ dealer.id }} - {{ dealer.title }} - {{ dealer.city.name }},{{ dealer.city.country.name }} - {{ dealer.email }} - <a href="./{{ dealer.id }}">Подробнее</a> <br/>
+  {% endfor %}
+</div>

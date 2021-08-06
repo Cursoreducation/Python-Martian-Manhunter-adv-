@@ -4,7 +4,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 class Order(models.Model):
-    card = models.ForeignKey(
+    car = models.ForeignKey(
         'cars.car',
         on_delete=models.CASCADE,
     )

@@ -1,0 +1,13 @@
+<h1>Dealer {{ dealer.id }}</h1>
+<div>
+    Описание - {{ dealer.title }} <br/>
+    Почта - {{ dealer.email }} <br/>
+    Город - {{ dealer.city.name }} <br/>
+    Страна - {{ dealer.city.country.name }} <br/>
+    {% if cars.count %}
+        Cписок машин: <br/>
+    {% endif %}
+    {% for car in cars %}
+        Авто - {{ car.model.brand.name }} {{ car.model.name }} - <a href="/cars/{{ car.slug }}">Подробнее</a><br/>
+    {% endfor %}
+</div>

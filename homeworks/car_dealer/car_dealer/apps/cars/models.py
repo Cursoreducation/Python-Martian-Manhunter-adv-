@@ -121,7 +121,11 @@ class Car(models.Model):
         (GEAR_CASE_VARIABLE, "Variable"),
     )
 
-    gear_case = models.CharField
+    gear_case = models.CharField(
+        max_length=30,
+        choices=GEAR_CASE_CHOICES,
+        default=GEAR_CASE_MECHANICAL,
+    )
 
     number = models.CharField(max_length=10)
 

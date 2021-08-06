@@ -1,0 +1,6 @@
+<h1>Orders list</h1>
+<div>
+  {% for order in orders %}
+     {{ order.id }} - {{ order.first_name }} {{ order.second_name }} - {{ order.email }} - {{ order.car.model.brand.name }} {{ order.car.model.name }} - <a href="./{{ order.id }}">Подробнее</a> <br/>
+  {% endfor %}
+</div>

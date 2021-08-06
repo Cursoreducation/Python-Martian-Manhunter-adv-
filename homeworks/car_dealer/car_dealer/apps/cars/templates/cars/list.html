@@ -1,0 +1,6 @@
+<h1>Cars list</h1>
+<div>
+  {% for car in cars %}
+     {{ car.id }} - {{ car.model.name }} - {{ car.model.brand.name }} - {{ car.price }} USD - <a href="./{{ car.slug }}">Подробнее</a> <br/>
+  {% endfor %}
+</div>
