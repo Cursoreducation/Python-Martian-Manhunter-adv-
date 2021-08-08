@@ -58,4 +58,8 @@ urlpatterns = [
         'api/order/',
         include('apps.orders.urls-api')
     ),
+    path(
+        'subscribe/',
+        include('apps.newsletter.urls')
+    ),
 ]
