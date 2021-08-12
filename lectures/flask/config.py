@@ -16,7 +16,7 @@ class Config:
     MENU_ITEMS = [
         {
             'name': "Articles",
-            'link': '/articles',
+            'link': '/article/create',
         },
         {
             'name': "Categories",

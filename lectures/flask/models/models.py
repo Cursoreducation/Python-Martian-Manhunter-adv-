@@ -38,6 +38,12 @@ class User(db.Model, Serializer):
         unique=False,
         nullable=True
     )
+    location = db.Column(
+        db.String(40),
+        index=False,
+        unique=False,
+        nullable=False
+    )
     admin = db.Column(
         db.Boolean,
         index=False,
@@ -56,6 +62,7 @@ class User(db.Model, Serializer):
             "username": self.username,
             "email": self.email,
             'bio': self.bio,
+            'location': self.location
         }
 
 
@@ -90,6 +97,12 @@ class Article(db.Model):
         nullable=False,
         index=False,
         unique=False
+    )
+    location = db.Column(
+        db.String(40),
+        index=False,
+        unique=False,
+        nullable=False
     )
     short_description = db.Column(
         db.String(350),

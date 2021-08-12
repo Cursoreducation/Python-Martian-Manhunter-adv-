@@ -5,7 +5,7 @@ from flask import render_template, request, Response, redirect, session
 from config import Config, articles
 from flask_restful import Resource, Api
 from models.models import Article, User
-from helpers.additional_functions import check_password
+from helpers.additional_functions import check_password, log_in
 
 
 @app.route('/', methods=["GET"])
@@ -31,6 +31,7 @@ def user_store():
         password=data.get('password'),
         bio=data.get('description'),
         created=datetime.datetime.now(),
+        location=data.get('location'),
         admin=0,
     )
 
@@ -48,17 +49,21 @@ def sign_in():
     return render_template('blog/signin.html')
 
 
+
+
+
 @app.route('/login', methods=['POST'])
 def login():
     user = User.query.filter_by(email=request.form.get('username')).first()
     if user:
         if check_password(user.password, request.form.get('password')):
-            session['user'] = user.serialize
+            log_in(user)
+
     else:
         user = User.query.filter_by(username=request.form.get('username')).first()
         if user:
             if check_password(user.password, request.form.get('password')):
-                session['user'] = user.serialize
+                log_in(user)
 
     return redirect('/')
 
@@ -103,6 +108,7 @@ def article_store():
         author_id=1,
         description=data.get('description'),
         short_description=data.get('short_description'),
+        location=data.get('location'),
         img=path
     )
 
