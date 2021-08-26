@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  web:
+    build: ./docker/python
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/src/app
+
+  mysql:
+    image: mysql:8.0
+    container_name: flask-mysql
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=flask
+      - MYSQL_USER=flask
+      - MYSQL_PASSWORD=flask
+    ports:
+      - "8003:3306"
