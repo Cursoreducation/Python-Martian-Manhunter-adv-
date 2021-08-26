@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 def main_page(request):
@@ -62,4 +63,12 @@ urlpatterns = [
         'subscribe/',
         include('apps.newsletter.urls')
     ),
+    path(
+        'api-token-auth/',
+        obtain_auth_token
+         ),
+    path(
+        'user/',
+        include('apps.auth_token.urls')
+         ),
 ]

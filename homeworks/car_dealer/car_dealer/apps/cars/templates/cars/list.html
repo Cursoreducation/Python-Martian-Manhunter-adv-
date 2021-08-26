@@ -1,6 +1,12 @@
-<h1>Cars list</h1>
+<h1>Список автомобилей</h1>
 <div>
+    <form method="get">
+        <input name="model__name" value="" placeholder="Модель">
+        <input name="model__brand__name" value="" placeholder="Марка">
+        <input name="dealer__id" value="" placeholder="Номер дилера">
+        <input type="submit">
+    </form>
   {% for car in cars %}
-     {{ car.id }} - {{ car.model.name }} - {{ car.model.brand.name }} - {{ car.price }} USD - <a href="./{{ car.slug }}">Подробнее</a> <br/>
+     {{ car.id }} - {{ car.model.name }} - {{ car.model.brand.name }} - {{ car.price }} USD - <a href="/dealers/{{ car.dealer.id }}">Дилер №{{ car.dealer.id }} {{ car.dealer.user.username }}</a> - <a href="./{{ car.slug }}">Подробнее</a> <br/>
   {% endfor %}
 </div>
