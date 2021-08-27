@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.cars',
     'apps.dealers',
     'apps.orders',
+    'apps.users',
     'phonenumber_field',
     'apps.newsletter',
     'apps.auth_token',
@@ -156,3 +157,5 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
+
+AUTH_USER_MODEL = 'users.CarDealerUser'

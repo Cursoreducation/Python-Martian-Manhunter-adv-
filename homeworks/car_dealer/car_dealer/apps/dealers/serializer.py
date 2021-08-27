@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from apps.dealers.models import Dealer, City, Country
-from apps.user.serializer import UserSerializer
+from apps.users.serializer import UserSerializer
 
 
 class CountrySerializer(serializers.ModelSerializer):
