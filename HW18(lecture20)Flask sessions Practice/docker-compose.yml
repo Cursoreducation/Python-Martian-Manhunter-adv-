@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - mysql
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.25
+    container_name: flask-mysql14
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=msharko
+      - MYSQL_DATABASE=flask
+      - MYSQL_USER=flask
+      - MYSQL_PASSWORD=msharko
+    ports:
+      - "8003:3306"

@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: green;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    text-align: left;
+    width: 30%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+}
+
+.select-group {
+    text-align: left;
+}
+
+form button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border-color: white;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div {
+    text-align: center;
+}
+
+.coords {
+    color: coral;
+}
+
+.temp {
+    color: #73b304;
+}
+
+.rain {
+    color: red;
+}

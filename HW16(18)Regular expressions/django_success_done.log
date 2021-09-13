@@ -1,0 +1,105 @@
+Attaching to api_web
+api_web          | Watching for file changes with StatReloader
+api_web          | Watching for file changes with StatReloader
+api_web          | Performing system checks...
+api_web          |
+api_web          | System check identified no issues (0 silenced).
+api_web          | April 21, 2020 - 10:18:34
+api_web          | Django version 3.0.3, using settings 'app.config.settings.development'
+api_web          | Starting development server at http://0.0.0.0:8080/
+api_web          | Quit the server with CONTROL-C.
+api_web          | Not Found: /
+api_web          | Not Found: /
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET / HTTP/1.1" 404 2435
+api_web          | Not Found: /
+api_web          | Not Found: /
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET / HTTP/1.1" 404 2435
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/ HTTP/1.1" 200 15950
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/ HTTP/1.1" 200 15950
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/authtoken/token/ HTTP/1.1" 200 5144
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/img/sorting-icons.svg HTTP/1.1" 200 1097
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/authtoken/ HTTP/1.1" 200 2500
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/ HTTP/1.1" 200 15950
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/faq/ HTTP/1.1" 200 3176
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/faq/add/ HTTP/1.1" 200 5981
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/css/forms.css HTTP/1.1" 200 8518
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /tinymce/tinymce4.css HTTP/1.1" 200 242
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/js/change_form.js HTTP/1.1" 200 712
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/js/prepopulate_init.js HTTP/1.1" 200 495
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/faq/add/ HTTP/1.1" 500 5981
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/css/forms.css HTTP/1.1" 500 8518
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /tinymce/tinymce4.css HTTP/1.1" 500 242
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/js/change_form.js HTTP/1.1" 500 712
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/js/prepopulate_init.js HTTP/1.1" 500 495
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 500 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/css/widgets.css HTTP/1.1" 200 10322
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/tinymce.min.js HTTP/1.1" 200 353198
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/themes/modern/theme.min.js HTTP/1.1" 200 130775
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/contextmenu/plugin.min.js HTTP/1.1" 200 1824
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/preview/plugin.min.js HTTP/1.1" 200 2044
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/image/plugin.min.js HTTP/1.1" 200 15807
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/codesample/plugin.min.js HTTP/1.1" 200 19335
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/code/plugin.min.js HTTP/1.1" 200 1024
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/lists/plugin.min.js HTTP/1.1" 200 27056
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/link/plugin.min.js HTTP/1.1" 200 8919
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/table/plugin.min.js HTTP/1.1" 200 119803
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/skins/lightgray/skin.min.css HTTP/1.1" 200 44049
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/skins/lightgray/content.min.css HTTP/1.1" 200 3932
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/skins/lightgray/fonts/tinymce.woff HTTP/1.1" 200 18824
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/tinymce/js/tinymce/plugins/codesample/css/prism.css HTTP/1.1" 200 2334
+api_web          | [XX/XXX/XXXX XX:XX:XX "POST /x_x_x_x/general/faq/add/ HTTP/1.1" 302 0
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/faq/ HTTP/1.1" 200 4530
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/img/icon-yes.svg HTTP/1.1" 200 436
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/ HTTP/1.1" 200 3450
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/general/userfeedback/ HTTP/1.1" 200 4439
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/ HTTP/1.1" 200 15893
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/carbrand/ HTTP/1.1" 200 19434
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "POST /x_x_x_x/auto/carbrand/ HTTP/1.1" 200 5559
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/js/cancel.js HTTP/1.1" 200 409
+api_web          | [XX/XXX/XXXX XX:XX:XX "POST /x_x_x_x/auto/carbrand/ HTTP/1.1" 302 0
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/carbrand/ HTTP/1.1" 200 19114
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/ HTTP/1.1" 200 5588
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/carmodel/ HTTP/1.1" 200 27790
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/carmodel/add/ HTTP/1.1" 500 7605
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | Not Found: /favicon.ico
+api_web          | Not Found: /favicon.ico
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /favicon.ico HTTP/1.1" 404 2486
+api_web          | [XX/XXX/XXXX XX:XX:XX "POST /x_x_x_x/auto/carmodel/add/ HTTP/1.1" 302 0
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/auto/carmodel/ HTTP/1.1" 200 27987
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/jsi18n/ HTTP/1.1" 200 3223
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /x_x_x_x/ HTTP/1.1" 200 15739
+api_web          | [XX/XXX/XXXX XX:XX:XX "GET /static/x_x_x_x/img/icon-deletelink.svg HTTP/1.1" 200 392

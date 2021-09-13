@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    {% block title %}{% endblock %}
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+{% block content %}
+{% endblock %}
+{% include 'blog/shared/footer.html' %}
+
+
+{% include 'blog/shared/scripts.html' %}
+</body>
+</html>

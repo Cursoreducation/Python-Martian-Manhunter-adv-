@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    <title>Registration</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+
+<div class="container">
+    <h1>User Registration</h1>
+    <form class="needs-validation" novalidate action="/user/user_created" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" required class="form-control" id="username" name="username" placeholder="Name">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty username
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" required class="form-control" id="email" name="email" placeholder="example@gmail.com">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty email
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bio">Biography</label>
+            <textarea required class="form-control" id="bio" name="bio" rows="3"></textarea>
+            <div class="invalid-feedback">
+                Empty description
+            </div>
+        </div>
+        <div class="btn-group mg-top-sm col-sm-12" role="group" aria-label="User registration">
+            <button type="submit" class="btn btn-primary">Registration</button>
+        </div>
+    </form>
+</div>
+
+{% include 'blog/shared/scripts.html' %}
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>

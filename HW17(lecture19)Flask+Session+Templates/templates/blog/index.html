@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+ <title>Homepage</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                {% if session.get('user', None) %}
+                    {% for article in articles %}
+                        {% if article.location == session.get('user').get('location') %}
+                            {% include 'blog/shared/article.html' %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                <h2 align="center">It is cool to see you in my blog!</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

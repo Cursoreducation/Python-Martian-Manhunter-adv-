@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    <title>{{ article.title }}| Cursor</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+<div class="container">
+    <h1 style="text-align: center">{{ article.title }}</h1>
+    <div class="article-body">
+        <div class="img">
+            <img src="{{ article.img }}" alt="{{ article.title}}">
+        </div>
+        <p class="article-description">
+            {{ article.description }}
+        </p>
+    </div>
+</div>
+
+
+{% include 'blog/shared/scripts.html' %}
+</body>
+</html>

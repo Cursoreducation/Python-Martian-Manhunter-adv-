@@ -1,0 +1,60 @@
+1. Save the ubuntu images to a tar/zip archive and then extract the layers and metadata files from them.(Tip: use `docker save -o` command)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+new           latest    1986d3c6d7bb   2 days ago    72.7MB
+flask_image   latest    c846fa7981bd   8 days ago    423MB
+ubuntu        20.04     7e0aa2d69a15   7 weeks ago   72.7MB
+ubuntu        latest    7e0aa2d69a15   7 weeks ago   72.7MB
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ docker save -o ubuntu_tar.tar ubuntu
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ ls -sh ubuntu_tar.tar
+72M ubuntu_tar.tar
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ mkdir ubuntu_tar
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ ls
+commands.txt  Dockerfile  ubuntu_tar  ubuntu_tar.tar
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ tar -xvf ubuntu_tar.tar -C ubuntu_tar/
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/VERSION
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/json
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb/layer.tar
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/VERSION
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/json
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72/layer.tar
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/VERSION
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc/layer.tar
+manifest.json
+repositories
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ ls ubuntu_tar
+2ae7aa944634fefcfd5b886827d742268228e070238fb405b4d846b266060dbb
+6e04f1f804d0d621b5a098dc2ecb5bcc7515cdf7f13d530a12fab11a194cfc72
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+f3f2ad580f7e6eb71163e45a6cbef2d6b82377e274e5193ff5708f506e9322bc
+manifest.json
+repositories
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+2*. Run a container that outputs the current date and time in Rome. Should be only Dockerfile.(Tip: user 'tzdata' library)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ docker build . -t time
+Sending build context to Docker daemon  150.2MB
+Step 1/2 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/2 : CMD TZ="Italy/Rome" date
+ ---> Running in f39f0264dbfd
+Removing intermediate container f39f0264dbfd
+ ---> ca9f71e7f51f
+Successfully built ca9f71e7f51f
+Successfully tagged time:latest
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+time          latest    ca9f71e7f51f   20 seconds ago   72.7MB
+new           latest    1986d3c6d7bb   2 days ago       72.7MB
+flask_image   latest    c846fa7981bd   8 days ago       423MB
+ubuntu        20.04     7e0aa2d69a15   7 weeks ago      72.7MB
+ubuntu        latest    7e0aa2d69a15   7 weeks ago      72.7MB
+maksym@maksymsharko:~/EDUCATION_CURSOR_ADVANCED/Python-Martian-Manhunter-adv-/HomeWork9 "Docker Practice"$ docker run ca
+Mon Jun 14 08:35:12 Italy 2021

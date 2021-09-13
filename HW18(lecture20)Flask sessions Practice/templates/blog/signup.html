@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    <title>Sign up</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+
+<div class="container">
+    <h1>Sign Up</h1>
+    <form class="needs-validation" novalidate action="/user-register" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" required class="form-control" id="username" name="username" placeholder="Kek">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty title
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Password</label>
+            <input type="password" required class="form-control" id="password" name="password" placeholder="Kek">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty title
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" required class="form-control" id="email" name="email" placeholder="test@test.com">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty slug
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" required class="form-control" id="location" name="location">
+            <div class="invalid-feedback">
+                Empty location
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea required class="form-control" id="description" name="description" rows="3"></textarea>
+            <div class="invalid-feedback">
+                Empty description
+            </div>
+        </div>
+        <div class="btn-group mg-top-sm col-sm-12" role="group" aria-label="Create article">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+{% include 'blog/shared/footer.html' %}
+
+
+{% include 'blog/shared/scripts.html' %}
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>

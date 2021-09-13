@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+
+    <title>Cursor Blog | Cursor</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                {% for article in articles %}
+                    {% include 'blog/shared/article.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'blog/shared/scripts.html' %}
+</body>
+</html>
