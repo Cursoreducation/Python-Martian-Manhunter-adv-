@@ -1,0 +1,4 @@
+1. Add elasticsearch & kibana containers docker-composer.prod
+2. Add rewrites to all apis endpoint for rewrite it from not api to /api
+Example:
+/articles rewrite to /api/articles

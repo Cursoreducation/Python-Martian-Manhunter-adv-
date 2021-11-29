@@ -1,0 +1,4 @@
+1. Create api endpoint which return a data from open weather api
+GET /weather?city=Lviv,London
+2. Create tests for this endpoint
+3. Improve endpoints from our lecture to save data from variable "todos" to text file which contain json and retreive it.

@@ -1,0 +1,3 @@
+1. Add ability to set location to articles and set location when user signing in.
+2. Check location when logged user going to homepage and display only related to user location articles.
+(for example Ukraine, and display only articles with location Ukraine)

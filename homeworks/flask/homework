@@ -1,0 +1,8 @@
+1. Create flask app with docker-compose.
+2. Write calculator with html template (something like we did on our lecture)
+Route list:
+/calc/5/2/div - result on page "5 / 2 = 2.5"
+/calc/5/2/sum - result on page "5 + 2 = 7"
+/calc/5/2/dif - result on page "5 - 2 = 3"
+/calc/5/2/mult - result on page "5 * 2 = 10"
+

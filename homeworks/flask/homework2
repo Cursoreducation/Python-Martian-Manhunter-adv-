@@ -1,0 +1,4 @@
+1. Deploy flask app from lecture on your local machine.
+2. Mock api call for test_search_weather
+3. Create search with lat and lon for search form.
+4.* Add ability to search more than one city

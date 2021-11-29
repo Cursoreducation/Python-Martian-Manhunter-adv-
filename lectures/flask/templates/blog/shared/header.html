@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ config.BLOG_TITLE}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menuItemsList">
+            </ul>
+        </div>
+        <div class="user-profile-block">
+           {% if session.get('user', None) %}
+            <span>{{ session.get('user').get('email') }}</span>
+            <a href="/logout">Log out</a>
+           {% else %}
+            <a href="/sign-in">sign In</a>
+            <a href="/sign-up">sign Up</a>
+           {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+<title>Contact Us</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+    <form class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" required class="form-control" id="title" name="title" placeholder="Kek">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty title
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" required class="form-control" id="email" name="email" placeholder="test@test.com">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Empty slug
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea required class="form-control" id="description" name="description" rows="3"></textarea>
+            <div class="invalid-feedback">
+                Empty description
+            </div>
+        </div>
+        <div class="btn-group mg-top-sm col-sm-12" role="group" aria-label="Create article">
+            <button type="button" class="btn btn-primary" id="sendContactForm">Send</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+1. Write sql query to get data from table articles and get all articles categories
+2. Write api endpoint to get articles and their categories
+3. Add autocommit to sqlalchemy configuration
+4. Write error messages if user send wrong data to auth form (Wrong password etc.) and handle error of auth.
